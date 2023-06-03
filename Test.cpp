@@ -10,7 +10,8 @@ TEST_CASE("MagicContainer functions")
 
     CHECK(cont.size() == 0);
 
-    for(int i = 1;i<=10;i++){
+    for (int i = 1; i <= 10; i++)
+    {
         cont.addElement(i);
     }
 
@@ -24,19 +25,22 @@ TEST_CASE("MagicContainer functions")
 
     CHECK(cont.size() == 10);
 
-    for(int i = 1;i <=11;i++){
-        if(i == 8){
+    for (int i = 1; i <= 11; i++)
+    {
+        if (i == 8)
+        {
             CHECK_THROWS(cont.removeElement(i));
         }
-        else{
+        else
+        {
             cont.removeElement(i);
             CHECK(cont.size() == (11 - i));
         }
-
     }
 }
 
-TEST_CASE("Prime Iterator"){
+TEST_CASE("Prime Iterator")
+{
     MagicalContainer cont;
     cont.addElement(11);
     cont.addElement(10);
@@ -58,8 +62,8 @@ TEST_CASE("Prime Iterator"){
     CHECK(pr == pr.end());
 }
 
-
-TEST_CASE("Ascending Iterator") {
+TEST_CASE("Ascending Iterator")
+{
     MagicalContainer cont;
     cont.addElement(6);
     cont.addElement(3);
@@ -71,16 +75,16 @@ TEST_CASE("Ascending Iterator") {
 
     int expected[] = {1, 3, 5, 6, 10};
 
-    for (int i= 0; asc != asc.end(); ++asc, ++i) {
+    for (int i = 0; asc != asc.end(); ++asc, ++i)
+    {
         CHECK(*asc == expected[i]);
     }
 
     CHECK(asc == asc.end());
-
 }
 
-
-TEST_CASE("Side Cross Iterator"){
+TEST_CASE("Side Cross Iterator")
+{
     MagicalContainer cont;
     cont.addElement(8);
     cont.addElement(11);
@@ -89,9 +93,9 @@ TEST_CASE("Side Cross Iterator"){
     MagicalContainer::SideCrossIterator cross(cont);
 
     int expected[] = {6, 11, 8};
- 
 
-    for (int i = 0; cross != cross.end(); ++cross, ++i) {
+    for (int i = 0; cross != cross.end(); ++cross, ++i)
+    {
         CHECK(*cross == expected[i]);
     }
 
